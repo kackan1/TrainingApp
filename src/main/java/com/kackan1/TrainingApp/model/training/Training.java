@@ -5,7 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
+import lombok.Getter;
 
+@Builder
+@Getter
 @Entity
 @Table(name = "training")
 public class Training {
@@ -16,4 +20,11 @@ public class Training {
     @Column(name = "name", nullable = false)
     private String name;
 
+    public Training() {
+    }
+
+    public Training(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
