@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.kackan1</groupId>
 	<artifactId>TrainingApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>TrainingApp</name>
 	<description>Track your training</description>
 	<properties>
@@ -64,6 +63,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>TrainingApp</finalName>
 	</build>
 
 </project>
