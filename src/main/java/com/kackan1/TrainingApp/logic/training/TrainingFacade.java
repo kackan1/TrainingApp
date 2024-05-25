@@ -1,5 +1,7 @@
 package com.kackan1.trainingapp.logic.training;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +13,11 @@ public class TrainingFacade {
     this.service = service;
   }
 
-  public ResponseEntity<?> getAllTraining() {
+  public ResponseEntity<List<TrainingDto>> getAllTraining() {
     return service.getAllTraining();
   }
 
-  public ResponseEntity<?> addTraining(TrainingDto dto) {
-    return service.addTraining(new TrainingMapper().toEntity(dto));
+  public ResponseEntity<TrainingDto> addTrainingWithExercises(TrainingDto dto) {
+    return service.addTrainingWithExercises(new TrainingMapper().toEntity(dto), dto.getExercises());
   }
 }

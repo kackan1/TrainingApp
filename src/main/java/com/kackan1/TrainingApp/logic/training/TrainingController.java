@@ -1,5 +1,7 @@
 package com.kackan1.trainingapp.logic.training;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +19,12 @@ public class TrainingController {
   }
 
   @GetMapping
-  ResponseEntity<?> getAllTraining() {
+  ResponseEntity<List<TrainingDto>> getAllTraining() {
     return facade.getAllTraining();
   }
 
   @PostMapping
-  ResponseEntity<?> addTraining(@RequestBody TrainingDto dto) {
-    return facade.addTraining(dto);
+  ResponseEntity<TrainingDto> addTraining(@RequestBody TrainingDto dto) {
+    return facade.addTrainingWithExercises(dto);
   }
 }
