@@ -5,8 +5,8 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copy the application jar file into the container
-ARG JAR_FILE=TrainingApp.jar
-COPY ${JAR_FILE} TrainingApp.jar
+# ARG JAR_FILE=./target/TrainingApp.jar
+COPY ./target/TrainingApp.jar TrainingApp.jar
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
