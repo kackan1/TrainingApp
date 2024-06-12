@@ -12,10 +12,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  app:
+  backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.backend
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydb
       SPRING_DATASOURCE_USERNAME: myuser
@@ -24,6 +24,14 @@ services:
       - postgres
     ports:
       - "8080:8080"
-      
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+     - "3000:3000"
+
 volumes:
   postgres_data:
+  
